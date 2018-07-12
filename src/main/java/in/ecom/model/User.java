@@ -2,31 +2,43 @@ package in.ecom.model;
 
 public class User {
 
-	String userName ;
+	String firstName ;
+	String lastName;
 	char gender;
-	String emailId;
+	String email;
 	String address;
 	String password;
 
 	public User() {
 		
 	}
-
-	public User(String userName, char gender, String emailId, String address, String password) {
+	
+	public User(String firstName, String lastName, char gender, String email, String address, String password) {
 		super();
-		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.gender = gender;
-		this.emailId = emailId;
+		this.email = email;
 		this.address = address;
 		this.password = password;
 	}
 
-	public String getUserName() {
-		return userName;
+
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public char getGender() {
@@ -37,12 +49,12 @@ public class User {
 		this.gender = gender;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getAddress() {
@@ -63,9 +75,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", gender=" + gender + ", emailId=" + emailId + ", address=" + address
-				+ ", password=" + password + "]";
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", email=" + email
+				+ ", address=" + address + ", password=" + password + "]";
 	}
-	
+
 	
 }

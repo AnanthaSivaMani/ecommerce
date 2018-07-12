@@ -273,7 +273,7 @@
 									</form>
 									<!-- /form -->
 									<div class="title">OR</div>
-									<div class="bottom-text">Create a <a href="account-create.html">New Account</a></div>
+									<div class="bottom-text">Create a <a href="register">New Account</a></div>
 								</div>
 							</div>
 							<!-- /Header Account -->

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -109,9 +110,26 @@
 					<div class="container">
 						<div class="form-card">
 							<h3>Personal Information</h3>
-							<form id="accountcreateForm" class="account-create" action="#" method="post">
+							<form:form action="register" method="post" id="accountcreateForm" cssClass="account-create">
+							
 								<label>First Name<span class="required">*</span></label>
-								<input type="text" class="form-control input-lg" name="name">
+								<form:input path="firstName" cssClass="form-control input-lg" name="name" />
+								<label>Last Name</label>
+								<form:input path="lastName" cssClass="form-control input-lg"/>
+								<label>E-mail<span class="required">*</span></label>
+								<form:input path="email" cssClass="form-control input-lg" name="email"/>
+								<label>Password<span class="required">*</span></label>
+								<form:password path="password" cssClass="form-control input-lg" name="passw" />
+								<div>
+									<button class="btn btn-lg" type="submit">Create</button><span class="required-text">* Required Fields</span></div>
+								<div class="back">or <a href="#">Return to Store <i class="icon icon-undo"></i></a></div>
+								
+								
+							
+							</form:form>
+							<%-- <form id="accountcreateForm" class="account-create" action="#" method="post">
+								<label>First Name<span class="required">*</span></label>
+								<input type="text" class="form-control input-lg" >
 								<label>Last Name</label>
 								<input type="text" class="form-control input-lg">
 								<label>E-mail<span class="required">*</span></label>
@@ -121,7 +139,7 @@
 								<div>
 									<button class="btn btn-lg" type="submit">Create</button><span class="required-text">* Required Fields</span></div>
 								<div class="back">or <a href="#">Return to Store <i class="icon icon-undo"></i></a></div>
-							</form>
+							</form> --%>
 						</div>
 					</div>
 				</div>
