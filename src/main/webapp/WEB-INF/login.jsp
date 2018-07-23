@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ include file="header.jsp" %>
 <html lang="en">
 
 <body class="boxed">
@@ -13,6 +14,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!-- /Loader -->
 	<div class="fixed-btns">
 		<!-- Back To Top -->
@@ -26,6 +28,7 @@
 				<jsp:include page="header.jsp"></jsp:include>
 			<!-- /Header -->
 			<!-- Sidebar -->
+			
 			<div class="sidebar-wrapper">
 				<div class="sidebar-top"><a href="#" class="slidepanel-toggle"><i class="icon icon-left-arrow-circular"></i></a></div>
 				<ul class="sidebar-nav">
@@ -84,15 +87,15 @@
 								<div class="form-card">
 									<h4>Registered Customers</h4>
 									<p>If you have an account with us, please log in.</p>
-									<form id="loginForm" class="account-create" action="#" method="post">
+									<form:form cssClass="account-create" id="loginForm"  action="checkLogin" method="post">
 										<label>E-mail<span class="required">*</span></label>
-										<input type="text" class="form-control input-lg" name="email">
+										<form:input path="emailId" cssClass="form-control input-lg" />
 										<label>Password<span class="required">*</span></label>
-										<input type="password" class="form-control input-lg" name="passw">
+										<form:password path="password" cssClass="form-control input-lg"/>										
 										<div>
-											<button class="btn btn-lg" type="submit">Create</button><span class="required-text">* Required Fields</span></div>
+											<button class="btn btn-lg" type="submit">Login</button><span class="required-text">* Required Fields</span></div>
 										<div class="back"><a href="#">Forgot Your Password?</a></div>
-									</form>
+									</form:form>
 								</div>
 							</div>
 						</div>
@@ -225,7 +228,7 @@
 		</div>
 	</div>
 	<!-- /Modal Quick View -->
-
+<input type="hidden" value="${message}" id="message">
 
 	<script>
 		// Login page form
@@ -252,7 +255,35 @@
 				}
 			});
 		});
-	</script>
+
+		$(document).ready(function() {
+	
+		if($('#message').val()!=null && $('#message').val() != "" ){
+		
+		//alert($('#message').val());
+		
+		 $.confirm({
+		        title: 'Login Failed!',
+		        content: "Invalid emailid or password...!",
+		        type: 'red',
+		        typeAnimated: true,
+		        buttons: {
+		            tryAgain: {
+		                text: 'OK',
+		                btnClass: 'btn-red',
+		                action: function(){
+		                }
+		            },
+		           
+		        }
+		    });
+	}
+	
+});
+
+
+
+</script>
 
 </body>
 

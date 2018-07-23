@@ -1,44 +1,58 @@
 package in.ecom.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+
+@Entity
+@Table(name="ecom_user")
+@Scope("session")
 public class User {
 
-	String firstName ;
-	String lastName;
+	
+	@Column(name="user_name")
+	String userName ;
+	
+	@Column(name="gender")
 	char gender;
-	String email;
+	
+	@Column(name="email_id")
+	@Id
+	String emailId;
+	
+	@Column(name="address")
 	String address;
+	
+	@Column(name="password")
 	String password;
 
 	public User() {
 		
 	}
 	
-	public User(String firstName, String lastName, char gender, String email, String address, String password) {
+
+	public User(String userName, char gender, String emailId, String address, String password) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.userName = userName;
 		this.gender = gender;
-		this.email = email;
+		this.emailId = emailId;
 		this.address = address;
 		this.password = password;
 	}
 
 
 
-	public String getFirstName() {
-		return firstName;
+
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public char getGender() {
@@ -49,12 +63,12 @@ public class User {
 		this.gender = gender;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getAddress() {
@@ -72,12 +86,8 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", email=" + email
-				+ ", address=" + address + ", password=" + password + "]";
-	}
-
+	
 	
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,8 @@
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 
 	<link rel="shortcut icon" href="favicon.ico">
+
+	
 
 	<!-- Vendor -->
 	<link href="js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +41,7 @@
 </head>
 
 <body class="boxed">
+
 	<!-- Loader -->
 	<div id="loader-wrapper">
 		<div class="cube-wrapper">
@@ -107,17 +111,21 @@
 					</div>
 				</div>
 				<div class="block">
+				<h1>
+				<input id="message" type="hidden" value="${message}"> 
+				</h1>
 					<div class="container">
 						<div class="form-card">
 							<h3>Personal Information</h3>
 							<form:form action="register" method="post" id="accountcreateForm" cssClass="account-create">
 							
-								<label>First Name<span class="required">*</span></label>
-								<form:input path="firstName" cssClass="form-control input-lg" name="name" />
-								<label>Last Name</label>
-								<form:input path="lastName" cssClass="form-control input-lg"/>
+								<label>Name<span class="required">*</span></label>
+								<form:input path="userName" cssClass="form-control input-lg" name="name" />
+								<label>Gender<span class="required">*</span></label><br>&nbsp;&nbsp;&nbsp;&nbsp;
+								<form:radiobutton path="gender" value="M" />Male &nbsp;&nbsp;&nbsp;&nbsp;
+								<form:radiobutton path="gender" value="F" />Female <br><br>
 								<label>E-mail<span class="required">*</span></label>
-								<form:input path="email" cssClass="form-control input-lg" name="email"/>
+								<form:input path="emailId" cssClass="form-control input-lg" name="email"/>
 								<label>Password<span class="required">*</span></label>
 								<form:password path="password" cssClass="form-control input-lg" name="passw" />
 								<div>
@@ -274,6 +282,35 @@
 	
 	<script>
 		// Account Create page form
+		
+		$(document).ready(function() {
+			
+			if($('#message').val()!=null && $('#message').val() != "" ){
+				
+				//alert($('#message').val());
+				
+				 $.confirm({
+				        title: $('#message').val(),
+				        content: "",
+				        type: 'red',
+				        typeAnimated: true,
+				        buttons: {
+				            tryAgain: {
+				                text: 'Try again',
+				                btnClass: 'btn-red',
+				                action: function(){
+				                }
+				            },
+				          
+				        }
+				    });
+				
+			}
+			
+		});
+		
+		
+		
 		$(function() {
 			$('#accountcreateForm').validate({
 				rules: {

@@ -3,7 +3,7 @@
   <groupId>in.ecom.demo</groupId>
   <artifactId>ecommerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <properties>
 		<spring.version>5.0.7.RELEASE</spring.version>
 		<hibernate.version>5.3.2.Final</hibernate.version>

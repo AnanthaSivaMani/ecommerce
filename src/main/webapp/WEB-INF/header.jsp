@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,6 +19,8 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Vendor --> 
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 	<link href="resources/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="resources/js/vendor/slick/slick.css" rel="stylesheet">
 	<link href="resources/js/vendor/swiper/swiper.min.css" rel="stylesheet">
@@ -266,14 +269,18 @@
 									<div class="title">Registered Customers</div>
 									<div class="top-text">If you have an account with us, please log in.</div>
 									<!-- form -->
-									<form id="registrForm" action="#" method="post">
-										<input type="text" class="form-control" placeholder="E-mail*" name="remail">
-										<input type="text" class="form-control" placeholder="Password*" name="rpassw">
+									<form:form id="registrForm" action="checkLogin" method="post">
+									<%-- <form id="registrForm" action="#" method="post"> --%>
+									<form:input path="emailId" placeholder="E-mail*" cssClass="form-control" />
+										<!-- <input  type="text" class="form-control" placeholder="E-mail*" name="remail"> -->
+									<form:password  path="password" placeholder="Password*" cssClass="form-control"/>										
+										<!-- <input type="text" class="form-control" placeholder="Password*" name="rpassw"> -->
 										<button type="submit" class="btn">Sign in</button>
-									</form>
+									<%-- </form> --%>
+									</form:form>
 									<!-- /form -->
 									<div class="title">OR</div>
-									<div class="bottom-text">Create a <a href="register">New Account</a></div>
+									<div class="bottom-text">Create a <a href="newRegister">New Account</a></div>
 								</div>
 							</div>
 							<!-- /Header Account -->
@@ -748,6 +755,11 @@
 <!-- header end -->			
 			
 			<!-- jQuery Scripts  -->
+			
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
 	<script src="resources/js/vendor/jquery/jquery.js"></script>
 	<script src="resources/js/vendor/bootstrap/bootstrap.min.js"></script>
 	<script src="resources/js/vendor/swiper/swiper.min.js"></script>
@@ -769,7 +781,7 @@
 	<script src="resources/js/vendor/form/jquery.form.js"></script>
 	<script src="resources/js/vendor/form/jquery.validate.min.js"></script>
 	<script src="resources/js/app.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 			
 
 

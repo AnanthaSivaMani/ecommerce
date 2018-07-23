@@ -5,6 +5,10 @@
 <html lang="en">
 
 <body class="boxed">
+<h1><%=request.getSession().getAttribute("emailId")%>
+
+<%=request.getSession().getAttribute("user")%>
+</h1>
 
 	<!-- Loader -->
 	<div id="loader-wrapper" class="off">
@@ -65,6 +69,7 @@
 			</div>
 			<!-- /Sidebar -->
 			<!-- Page Content -->
+			<input id="message" type="hidden" value="${message}">
 			<main class="page-main">
 				<div class="block fullwidth full-nopad bottom-space">
 					<div class="container">
@@ -1165,8 +1170,10 @@
 										<a href="index.html"><img src="resources/images/logo-footer-small.png" alt="Footer Logo"></a>
 									</div>
 									<div>
+									<input id="message" type="hidden" value="${message}">
 										<!-- input-group -->
 										<form action="#">
+										
 											<div class="input-group">
 												<input type="text" class="form-control">
 												<span class="input-group-btn">
@@ -1402,5 +1409,36 @@
 	<!-- /Modal Quick View -->
 
 </body>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	if($('#message').val()!=null && $('#message').val() != "" ){
+		
+		//alert($('#message').val());
+		
+		 $.confirm({
+		        title: 'Registered Successfully!',
+		        content: "",
+		        type: 'green',
+		        typeAnimated: true,
+		        buttons: {
+		            tryAgain: {
+		                text: 'OK',
+		                btnClass: 'btn-green',
+		                action: function(){
+		                }
+		            },
+		           
+		        }
+		    });
+	}
+	
+});
+
+
+
+</script>
 
 </html>
